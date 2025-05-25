@@ -148,7 +148,7 @@ class TestAccountService(TestCase):
         # create an Account to update
         account = AccountFactory()
         response = self.client.post(
-            BASE_URL, 
+            BASE_URL,
             json=account.serialize(),
             content_type="application/json"
         )
