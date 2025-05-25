@@ -148,7 +148,7 @@ class TestAccountService(TestCase):
         # create an Account to update
         account = AccountFactory()
         response = self.client.post(
-            BASE_URL, 
+            BASE_URL,
             json=account.serialize(),
             content_type="application/json"
         )
@@ -158,7 +158,7 @@ class TestAccountService(TestCase):
         new_account = response.get_json()
         new_account["name"] = "Something Known"
         response = self.client.put(
-            f"{BASE_URL}/{new_account['id']}", 
+            f"{BASE_URL}/{new_account['id']}",
             json=new_account
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -203,3 +203,4 @@ class TestAccountService(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         # Check for the CORS header
         self.assertEqual(response.headers.get('Access-Control-Allow-Origin'), '*')
+      
